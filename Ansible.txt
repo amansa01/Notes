@@ -1,0 +1,94 @@
+Ansible is Infrastructure as a tool 
+Written In Python 
+AgentLess as compared to other tools
+
+Uses Playbooks
+Playbooks consists of 
+-> Tasks and Roles
+Tasks
+-> Series of steps we write to defined to happen in system
+Roles 
+-> modulate version of tasks
+
+order of priority for config files in ansible. If in multiple places cnfg file are present then Ansible takes it on priority bases.
+{{
+Ansible_Config
+ansible.cfg (in current directory)	
+.ansible.cfg (in home directory)
+/etc/ansible/ansible.cfg
+}}
+host key checking is false by default
+ssh timeout 
+check this file /etc/ansible/ansible.cfg for more info 
+
+Ansible Inventory
+inventory : hosts to be connected 
+written in INI format 
+HOST VARIABLE : if one of the machine required a different username to ssh
+GROUP VARIABLE :
+GROUPS of Groups
+inventory files series of hosts to be grouped
+etc/ansible/hosts ( by default ) but we can change on run time as well
+Host we can give in ungrouped manner, grouped manner, or in pattern
+
+
+COMMANDS : 
+ansible -m ping all
+eval `ssh-agent -s`
+
+ungrouped ex : 
+1.1.1.1
+exxample.com
+
+grouped ex : 
+[webservers]
+1.1.1.1
+example.com
+
+pattern: 
+www[001:006].example.com 
+
+Commands :
+ansible <target> -m <module name> -a arguments 
+Parallelism <commands> -f ( use -f to run commands parrelel in ansible )
+ansible-doc -l list all the variables avilable in ansible
+  
+Facts:
+provide details of hosts.
+ansible all-m setup (get all facts from all nodes in inventory)
+ansible all-m setup -a 'arguments' (to filter the facts)
+
+Variables:
+define a variable file and use them in Inventory/PlayBooks/Files
+valid variable names :	cannot use '-',Should be alphanumeric 
+{{ variable_NAME }} 
+
+
+PLAYBOOK:
+ansible-playbook sample.yaml
+
+YAML
+List : 
+(-mango
+-banana)
+(FOODS:
+-egg
+-pizza)
+
+Dictonary :
+['mango','banana']
+{'FOODS':['egg','-pizza']}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
