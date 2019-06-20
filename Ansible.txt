@@ -1,3 +1,15 @@
+YAML
+List : 
+(-mango
+-banana)
+(FOODS:
+-egg
+-pizza)
+
+Dictonary :
+['mango','banana']
+{'FOODS':['egg','-pizza']}
+
 Ansible is Infrastructure as a tool 
 Written In Python 
 AgentLess as compared to other tools
@@ -63,32 +75,80 @@ define a variable file and use them in Inventory/PlayBooks/Files
 valid variable names :	cannot use '-',Should be alphanumeric 
 {{ variable_NAME }} 
 
+Ansible can be use in AdHoc mode ( directly giving instructions ) or in playbook ( instructions from a file) 
 
 PLAYBOOK:
 ansible-playbook sample.yaml
 
-YAML
-List : 
-(-mango
--banana)
-(FOODS:
--egg
--pizza)
-
-Dictonary :
-['mango','banana']
-{'FOODS':['egg','-pizza']}
+Structure of Playbook : 
+Target Section 
+Variable Section
+Task Section 
+Handler 
+Loops
+Conditionals
+Until 
+Notify
 
 
+PLAYBOOK EXAMPLE
+
+---
+- hosts: web_portal
+  tasks:
+    -name: Apt get Update
+     apt: update_cache=yes
+   (apt is a module) 	
+    -name: Install Apache2, ngin ,tmux
+     apt: name={{ item }} update_cache=no   
+     with_items: (loop example)
+	- apache2
+	- nginx
+	- tmux 
+	
+    -name: Copy Data files
+     copy: src=path to file  dest= path to file
+
+    -name: stop the service
+     service : name=apache2 state=stopped
+	
+    -name: Copy Template file
+     template: src=current.html.j2 dest=/var/www/html
+     notify: Start apache
+
+    -name: Check uptime
+     shell: uptime
+     register: uptime_var (for debugging)
+
+    -name: Print Uptime
+     debug: var=uptime_var		
+
+    -name: testing conditional
+     shell: uptime
+     when: ansible_hostname=node02 (conditional) 		
+
+    -name: testing untill
+     shell: service apache2 status
+     register: result
+     until: result.stdout.find(("active(running)") != -1
+     retries: 5
+     delay: 5		
+
+handlers:
+    - name: Start apache
+      service: name=apache2 state=restarted
 
 
 
 
-
-
-
-
-
-
-
+ansible-playbook playbook_name.yml [-b(for sudo permissions)]
+ansible-playbook playbook_name.yml [-b --check(for dry run)]
+man ansible_playbook
+ansible-doc -l | grep service
+by default service do not start
+template module (jinger file)
+Handlers(list of task,global unique name) run only once in the end completing of all the tasks and was notified using notifiers
+ansible_hostname
+dryrun (run task in simulation mode) (--check option)
+until - run a task till until condition (similar to do_while loop)
 
