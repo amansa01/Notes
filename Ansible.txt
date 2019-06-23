@@ -152,3 +152,36 @@ ansible_hostname
 dryrun (run task in simulation mode) (--check option)
 until - run a task till until condition (similar to do_while loop)
 
+
+
+Ansible Vault - store sensitive information,
+#Ansible roles - reusability,modularity,encapulate  
+Ansible galay -
+Tag : tag a task
+we can start from 3rd or 4th task as well.
+
+Ansible Vault : 
+create a vault : ansible-vault create foo.yml
+view  vault: ansible-vault view foo.yml
+use in playbook : ansible-playbook site.yml --ask-vault-pass (will ask for password)
+(How to update the vault file???)
+
+
+ansible modules:
+setup Module : gather facts from  host machine
+(ansible host -m setup)
+file module : file operations creations,symbolic link recursive copy etc
+find more at ansible-doc file
+yum module : red hat based os systems u use yum. similar to apt module
+apt module,
+service module,
+copy module,shell module
+user module : ansible-doc user. used to manage users.
+ansible node01 -m user -a "user=tetracloud" -b  to create a new user
+command module : ansible-doc commands. can be used to run shell commands
+
+
+Roles : similar to project in other languages,Given presedence ( run roles before other tasks.) 
+pre_tasks :  run tasks before roles
+post_tasks :  run tasks after roles
+to create a new role eecute : ansible playbook initrole newroleName
