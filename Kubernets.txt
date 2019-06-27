@@ -1,0 +1,22 @@
+Building block of Kubernets: 
+Minions (Nodes) : can think of it as CONTAINER CLIENTS.These are individual hosts that docker is installed on and hosts the various conatiners within your managed clusters.
+
+Each Minion will run ETCD (key managment and communication service used by kubernets for exchanging msgs and reporting on cluster status) 
+
+Pods :  pod consists of one or more container.these pods are guranteed to be located on same host machine in order to share resources.
+
+pods are assingned unique ips within each cluster.
+pod managment is done through API or delegated to a controller
+
+Labels : key-value pairs used to identify pods or minions for configuration and managment.
+
+Selectors : Label selectors represent queries that are made against those labels.They resolve to the corresponding matching objects.
+
+
+Controllers : 
+these are the mechanism by which your desired configuration state is enforced.
+
+Services  : 
+be default service is only exposed inside a cluster , it can also be eposed outside a cluster as needed.
+Control Pane
+API  
