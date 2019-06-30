@@ -1,0 +1,41 @@
+Pods : Is a group of one or more containers with shared storage/network and a specification for how to run the containers.
+pods are short lived
+Basic unit of deployment.
+pods are not accessible from outside the cluster. For this service are required.
+
+kubectl get all (will show all what we have defined)	
+kubectl get pods
+kubectl get po
+kubectl get po --show-labels
+kubectl get po --show-labels -l release=0 (search for a specific label)
+kubectl delete pods for deleting a pod
+minikube ip 
+kubectl delete pods
+kubectl delete deployment
+kubectl delete rc
+kubectl describe pod_name
+we can connect to a pod and execute a command in pod
+kubectl exec pod_name command
+pod label key value pair
+
+Services : 
+long running object , stable fixed port , have IP
+selector series of key value pair and will maps to pods labels
+
+
+In service 
+one of the option is type for which we have two options ( for local cluster)
+clusterIP :Internal service,  will run inside the cluster, will not expose service to outside world.Kind of a private 
+
+NodePort : expose a port through the node ( kubernetic cluster).we have to specify nodePort in ports section. 
+NodePort should be greater then 30000
+
+
+ReplicaSets
+we dont deploy pods directly as it can crash anytime and cannot restart on its own.
+
+its more likely a additional layer on a pod.
+difference between current and ready when you do kubectl get all and see in replica set.
+current meant no of pods ready. and ready means no of pods listening.
+
+
