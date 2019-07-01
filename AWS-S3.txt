@@ -1,0 +1,47 @@
+s3 stands for simple storage service
+Object-based Storage
+files can be 0Bytes to 5TB.
+files are stored in buckets.
+s3 is a universal namespace. 
+https://s3-region.amazonaws.com/bucketname
+Data Consistency : 
+read after write conistency for puts of new objects
+eventual conistency for overwrite puts and deletes(can take some time)
+99.99% availability
+99.9999999% durability (11X9)
+Lifecycle Managment,Versioning,Encryption
+
+S3 storage tiers:
+S3 standard 99.99% availability 99.9999999% durability 
+
+S3-IA(infrequently accessed 
+
+S3 one Zone IA : lower cost and is in one zone only
+
+Glacier : Data archive only. Expedied,Standard or Bulk.standard retrieval time 3-5 hours
+
+
+
+Versioning : 
+If enabled once you can only suspend versioning nd cannot be removed
+
+if we remove a object from a bucket where versioning is enabled we will have delete marker at that version. we can restor file by removing the delete marker file.
+MFA delete we can use for security purposes
+
+Cross Region Replication : 
+we can replicate entire bucket or prefixed tags
+destination-Bucket we required and should be in different regions and versioning should be enabled
+IamRole is reqired
+It is for new files and updated files in bucket for existing objects we have to use cli to copy manually
+
+If we delete from primary bucket it wont delete from backup bucket.Delete marker is not replicated.
+
+LifeCycle Managment
+
+CloudFront : content deliveryt network (CDN) that delivers webpages and other web content to users based on geographic loctaions
+edge location - location where content will be cached.
+origin - origin of all files that cdn will distribute.
+Distribution : name given the CDN which consist of a collection of Edge locations.
+Edge location are not just for read only, you can write them too.
+
+
