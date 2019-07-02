@@ -44,4 +44,24 @@ origin - origin of all files that cdn will distribute.
 Distribution : name given the CDN which consist of a collection of Edge locations.
 Edge location are not just for read only, you can write them too.
 
+Security
+By default new buckets are private.
+Setup access control to buckets by using : bucket policies,Acccess control lists
+
+Encryption : two types of encryption
+1)In transit - SSL/TLS
+2)At rest - server side encryption : s3 Managed keys -SSE-s3
+				   : Aws Key Managment system SSE-KMS		
+				   :Server side Encryption with customer  provided keys - SSE-C
+3) client side encryption
+
+
+
+Snowball :
+
+S3 transfer Acceleration : S3 transfer Acceleration : uses cloudfront edge network to accelerate your uploads to s3. you will get a distinct url to upload to.(bucketname.s3-accelerate.aamazonaws.com
+
+create a normal s3 bucket go to properties and enable transfer acceleration and take a note of new endpoint
+
+
 
