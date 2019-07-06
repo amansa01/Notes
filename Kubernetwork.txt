@@ -1,0 +1,18 @@
+kubernetworks Networking
+secret in kubernets
+Eg of java app and my sql shouldn't be in a pod. Both the container will be having different Ips in kubernets cluster.
+
+Kubernets maintain their own DNS service.
+Service Name - kube-dns
+
+NameSpaces in kubernets:
+partioning resources in kubernetics in seprate areas.
+If you dont specify the resource any namespace it will have default as namespace.
+
+when running kubectl get all if you dont specify namespace result will show only default namespace.
+kubectl get ns/namespace
+kube-public,kube-system namespaces are used by kubernetes for their internal use.
+fully qualified domain name 
+
+
+

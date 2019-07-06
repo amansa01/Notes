@@ -39,3 +39,14 @@ difference between current and ready when you do kubectl get all and see in repl
 current meant no of pods ready. and ready means no of pods listening.
 
 
+Deployments :
+Rolling update with zero downtime,
+Rollbacks we can do.
+Deployments create replica sets
+For Rolling update Deployments will bring the new replica set with new image version and old replicat set replicas will become zero but it wont be deleted(for the case of rollback).
+
+kubectl rollout history deploy appname it will give a history of rollout.
+we can revert/rollback by using kubectl rollout undo deploy appname --to-revision=REVISION_NO if we dont specify the --to-revision rollback then it will rollback to one previous version
+
+Bydefault kubernets remembers last 10 revision of rollout. 
+
