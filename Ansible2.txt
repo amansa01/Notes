@@ -3,7 +3,7 @@ log in to one of the ec2 instance
 install aws-cli
 ansible-doc -l | grep aws ( will give modules of aws in ansible)
 ansible-doc -l | grep ec2 ( will give modules of ec2 in ansible)
-ansible ;ocalhost -m ec2 -a "instance_ids=instanceId state=running region=region"
+ansible localhost -m ec2 -a "instance_ids=instanceId state=running region=region"
 
 
 

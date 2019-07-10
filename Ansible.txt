@@ -186,5 +186,6 @@ pre_tasks :  run tasks before roles
 post_tasks :  run tasks after roles
 to create a new role eecute : ansible playbook initrole newroleName
 
-
-
+Ansinble create vault files
+ansible-vault create foo.yml
+ansible-vault edit foo.yml
