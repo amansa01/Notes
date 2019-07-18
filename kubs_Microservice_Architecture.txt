@@ -6,3 +6,5 @@ MicroService will maintain their own DB.
 
 Logs for the pods is given as : kubectl logs pod-name
 logs is given for pod only not for service and deployment or any other type
+
+Persistence : 
