@@ -1,0 +1,25 @@
+FIGHTDRMCPX (instanse typpes)
+EBS(Elastic block storage) kind of virtual Hard disk
+1subnet = 1 availability zone 
+by default ebs delete on termination is true
+
+Security Group : rules apply immediately,stateful,you cannot deny anything at security group level you can only allow.
+Inbound : (hit the web server)
+Outbound : if u add a rule in inbound it will automatically be added in outbound rule
+Default Values : All outbound Allowed by default but inbound is blocked.
+you can associate multiple Security group to one instance. for doing that select the Instance and go to actions go to networking and change security groups and add or remove any security group you want.
+
+NACL are stateless (imo Interview Ques)
+
+Upgrading EBS Volume
+Exam ques: can ec2 instance in one avability zone and ebs volume in another avability zone. can ec2 instance mount that ? Ans is no they have to be in same region.
+
+To modify ebs volumes.
+Go to volumess.
+select a volume and go to actions and modify volume.(instance stopping not required now.)
+
+to move the ebs volume/ ec2 instance from one to another create a snapshot of existing volume and then create a new volume/ec2 instance from the snapshot in another region.
+You can share snapshots but only if they are unencrypted
+
+
+

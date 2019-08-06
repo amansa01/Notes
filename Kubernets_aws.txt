@@ -1,0 +1,11 @@
+
+Nodes : a physical server in the system in aws (ec2).
+
+Multiple nodes in a cluster.
+We will have a master node.
+
+
+KOPS : kubernetics operation
+install cli tool kops
+we can install kops in local system as well and it will communicate with ec2 instances for nodes.
+INSTALL KOPS IN EC2
