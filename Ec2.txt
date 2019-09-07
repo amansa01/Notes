@@ -37,7 +37,45 @@ Magnetic (standard) : data is accessed infrequently. can be bootable.
 
 
 1subnet will be avilable in only 1 avilability zone
-security group is kind of a (virtual firewall)
+Security Groups are stateful
+security group is kind of a (virtual firewall).
+Any rule change you apply to security group is applied immediately.
+Outbound rules are added automatically when an Inbound rule is added.
+while editing Inbound rules it cant Deny traffic.By default everything is blocked you can just allow traffic.
+
+Dfault Inbound traffic is blocked by default.
+Dfault Outbound traffic is Allowed by default.
+
+You can add more than one security group by going in Actions and updating security groups. 
+
+EBS Volume : Ec2 instance and EBS volume should be in same avaibility zone.
+You can change EBS volume size on the fly.
+
 EBS root volume of default AMI cannot be encrypted.It can be encrypted using 3rd party tool or while taking snapshot.
+
 Termination protection is off by default while booting an ec2 instance
 2 different type status check
+
+If we terminate a Ec2 instance by default only root volume is terminated not the other volumes.
+
+Snapshot exist on s3.Snapshot are point in copies of volumes.
+Snapshots are incremental.
+
+To move an Ec2 volume from Az/region to another, take a snap or an image of it, then copy it to new AZ/Region.
+
+You can share snapshot,but only if they are unencrypted.
+
+
+
+Elastic Load Balancer
+Application Load Balancer ( Layer 7 ) 
+Network Load Balancer ( Layer 4 )
+Classic Load Balancer ( Layer 4 )
+
+
+AutoScaling
+ 
+Placement Group
+
+
+
