@@ -95,6 +95,8 @@ PLAYBOOK EXAMPLE
 
 ---
 - hosts: web_portal
+  become: true       /** to escalate privileges to become a specific user **/
+  become_user: root  /** to escalate privileges to become a specific user **/
   tasks:
     -name: Apt get Update
      apt: update_cache=yes

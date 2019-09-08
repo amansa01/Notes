@@ -22,4 +22,6 @@ to move the ebs volume/ ec2 instance from one to another create a snapshot of ex
 You can share snapshots but only if they are unencrypted
 
 
+Placement groups??
+Baiston Host
 
